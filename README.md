@@ -6,11 +6,13 @@ Provides a quick and dirty way of fetching people's public Github streams.
 
 ## Tutorial and Example Code
 
-<code>$(document).ready(function() {
+<pre>
+$(document).ready(function() {
   $("#feed").github({ user: 'jbueza' }, function(data) {
     $("#tmplGithub").tmpl( data ).appendTo("#feed");
   });
-});</code>
+});
+</pre>
 
 
 ## MIT Licence
