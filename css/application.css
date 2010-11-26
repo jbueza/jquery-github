@@ -1,1 +1,18 @@
-body{font:1em normal Helvetica, Arial, Sans-Serif}
+body {
+  font: 0.9em normal Arial, Sans-Serif;
+  background: black;
+  color: white; }
+  body a, body a:active, body a:visited {
+    color: #01b2f1; }
+    body a:hover, body a:active:hover, body a:visited:hover {
+      color: white; }
+  body #container {
+    width: 960px;
+    margin: 0 auto; }
+  body #feed p {
+    margin: 10px 5px; }
+    body #feed p span.date {
+      color: #cccccc;
+      font-size: 0.8em; }
+  body h1 {
+    font-size: 2em; }

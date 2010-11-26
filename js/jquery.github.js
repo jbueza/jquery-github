@@ -8,12 +8,16 @@
       throw new Error("'callback' is missing or is not a function.");
     }
     
-    var url = "http://twitter.com/status/user_timeline/"
-      + username + ".json?count="+numPosts+"&callback=?";
-
+    if( typeof(config.limit) == 'undefined') config.limit = 10;
+    
+    var url = "https://github.com/" + config['user']+ ".json?callback=?";
+    
     $.getJSON( url, function( data ){
-      if( $.isFunction( fnk ) ) {
-        fnk.call( this, data );
+      
+      data.length = config.limit;
+      
+      if( $.isFunction( callback ) ) {
+        callback.call( this, data );
       }
     });
   };

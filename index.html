@@ -8,7 +8,6 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
   <title>jquery-github: Example of fetching a user's public json feed.</title>
   <meta name="description" content="">
   <meta name="author" content="Jaime Bueza">
@@ -18,17 +17,24 @@
 
 <body>
   <div id="container">
-    <h1>jQuery plugin for fetching github profile feed</h1>
-    <p>Uses jsonp</p>
+    <h1>jQuery plugin for fetching github public profile feed</h1>
+    <p>Uses JSONP and oh yeah, I &lt;3 octocat.</p>
+    <p>Fun for plugging this into your blog. Probably can be plugged into a Wordpress module.</p>
     <div id="feed"></div>
   </div> <!--! end of #container -->
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/jquery.github.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery.tmpl.js" type="text/javascript" charset="utf-8"></script>
+  <script id="tmplGithub" type="text/x-jquery-tmpl">
+    <p>[${actor}] <a href="${url}" title="${payload.action} by ${actor}">${type}</a> on <span class="date">${created_at}</span></p>
+  </script>
+  
+  
   <script>
     $(document).ready(function() {
       $("#feed").github({ user: 'jbueza' }, function(data) {
-        console.log(data);
+        $("#tmplGithub").tmpl( data ).appendTo("#feed");
       });
     });
   </script>
